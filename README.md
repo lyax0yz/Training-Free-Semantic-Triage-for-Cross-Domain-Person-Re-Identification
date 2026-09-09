@@ -1,9 +1,7 @@
 # Dissertation experiment package
 
 This directory contains the code, configurations, compact result files, and
-selected qualitative examples actually used in the dissertation. Large raw
-datasets, feature matrices, model weights, and semantic caches are referenced
-in `data_manifest/LARGE_DATA_FILES.md` rather than duplicated.
+selected qualitative examples actually used in the dissertation.
 
 ## Contents
 
