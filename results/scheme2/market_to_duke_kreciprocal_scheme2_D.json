@@ -1,0 +1,73 @@
+{
+  "experiment": "Frozen Scheme 2 configuration D external validation",
+  "source": "market1501",
+  "target": "dukemtmcreid",
+  "ranking_source": "k-reciprocal(k1=20,k2=6,lambda=0.3), score=1-distance",
+  "ranking_score_definition": "1 - saved distance",
+  "fixed_configuration": {
+    "topk": 20,
+    "delta": 0.02,
+    "lambda_sem": 0.05,
+    "attributes": [
+      "gender",
+      "build",
+      "age",
+      "upper_colour",
+      "upper_type",
+      "lower_colour",
+      "lower_type",
+      "backpack",
+      "handbag",
+      "hat"
+    ],
+    "attribute_weights": {
+      "gender": 0.75,
+      "build": 0.75,
+      "age": 0.75,
+      "upper_colour": 1.0,
+      "upper_type": 0.5,
+      "lower_colour": 1.0,
+      "lower_type": 0.5,
+      "backpack": 0.75,
+      "handbag": 0.75,
+      "hat": 0.75
+    },
+    "scheme2_variant": "D: SymbolRegistry + deterministic multi-view voting; no gate/quality mask"
+  },
+  "baseline": {
+    "mAP": 0.2917759476615142,
+    "Rank-1": 0.39497307001795334,
+    "Rank-5": 0.5022441651705566,
+    "Rank-10": 0.5601436265709157
+  },
+  "scheme2_D": {
+    "mAP": 0.29213894994291445,
+    "Rank-1": 0.3999102333931777,
+    "Rank-5": 0.5026929982046678,
+    "Rank-10": 0.5601436265709157
+  },
+  "change_from_baseline": {
+    "mAP": 0.0003630022814002376,
+    "Rank-1": 0.004937163375224374,
+    "Rank-5": 0.0004488330341112512,
+    "Rank-10": 0.0
+  },
+  "candidate_statistics": {
+    "query_count": 2228,
+    "triggered_query_count": 957,
+    "triggered_query_rate": 0.42953321364452424,
+    "average_ambiguity_size": 1.9443447037701975
+  },
+  "semantic_statistics": {
+    "semantically_score_modified_query_count": 956,
+    "ranking_changed_query_count": 516,
+    "wrong_to_correct_count": 21,
+    "correct_to_wrong_count": 10,
+    "net_rank1_correction_count": 11,
+    "average_accepted_attributes_per_pair": 9.258085592943482,
+    "semantic_abstention_rate": 0.07419144070565176,
+    "true_match_attribute_agreement_rate": 0.6932543299908842,
+    "false_match_attribute_agreement_rate": 0.5574874776901376
+  },
+  "inference_label_policy": "No PID/camera labels used in candidate scoring or semantic fusion."
+}

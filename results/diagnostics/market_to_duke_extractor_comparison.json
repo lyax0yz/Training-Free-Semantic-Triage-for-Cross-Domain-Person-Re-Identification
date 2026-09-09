@@ -1,0 +1,35 @@
+{
+  "protocol": {
+    "source_target": "Market-1501 to DukeMTMC-reID",
+    "osnet_artifact": "artifacts/market_to_duke_osnet_x1_0.npz",
+    "candidate_rule": {"topk": 20, "delta": 0.02},
+    "attributes": ["upper_colour", "lower_colour"],
+    "confidence_threshold": 0.25,
+    "lambda_sem": 0.05,
+    "fusion": "signed_equal: known match +1, known conflict -1, unknown abstains"
+  },
+  "visual_osnet_baseline": {
+    "mAP": 0.18864183184213013,
+    "Rank-1": 0.33078994614003593,
+    "Rank-5": 0.47710951526032314,
+    "Rank-10": 0.547576301615799
+  },
+  "extractors": {
+    "openai_clip_vit_b_32": {
+      "attribute_cache": "artifacts/market_to_duke_pedestrian_attributes.json",
+      "semantic_metrics": {"mAP": 0.18906582422743434, "Rank-1": 0.3370736086175943, "Rank-5": 0.4780071813285458, "Rank-10": 0.547576301615799},
+      "change_from_visual_baseline": {"mAP": 0.0004239923853042171, "Rank-1": 0.006283662477558349, "Rank-5": 0.0008976660682226689, "Rank-10": 0.0},
+      "wrong_to_correct_count": 50,
+      "correct_to_wrong_count": 36,
+      "net_rank1_correction_count": 14
+    },
+    "siglip2_base_patch16_224": {
+      "attribute_cache": "artifacts/market_to_duke_siglip2_pedestrian_attributes.json",
+      "semantic_metrics": {"mAP": 0.18948121328153097, "Rank-1": 0.3402154398563734, "Rank-5": 0.4793536804308797, "Rank-10": 0.5471274685816876},
+      "change_from_visual_baseline": {"mAP": 0.0008393814394008492, "Rank-1": 0.009425493716337496, "Rank-5": 0.002244165170556589, "Rank-10": -0.0004488330341113622},
+      "wrong_to_correct_count": 57,
+      "correct_to_wrong_count": 36,
+      "net_rank1_correction_count": 21
+    }
+  }
+}

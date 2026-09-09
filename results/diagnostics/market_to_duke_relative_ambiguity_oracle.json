@@ -1,0 +1,648 @@
+{
+  "artifact": "D:\\deep-person-reid\\artifacts\\market_to_duke_osnet_x1_0.npz",
+  "artifact_metadata": {
+    "checkpoint": "D:\\deep-person-reid\\log\\osnet_x1_0_market1501_softmax_cosinelr\\model\\model.pth.tar-250",
+    "distance_metric": "euclidean",
+    "feature_dim": 512,
+    "model_name": "osnet_x1_0",
+    "normalize_feature": false,
+    "source_datasets": [
+      "market1501"
+    ],
+    "target_dataset": "dukemtmcreid"
+  },
+  "feature_normalization": "L2 per feature vector",
+  "similarity": "cosine similarity",
+  "thresholds": {
+    "high": 0.7,
+    "reject": 0.4
+  },
+  "zones": {
+    "high": "similarity >= high",
+    "ambiguous": "reject <= similarity < high",
+    "reject": "similarity < reject"
+  },
+  "full_gallery_three_zone_analysis": {
+    "pair_composition": {
+      "high": {
+        "same_identity": 27148,
+        "different_identity": 789599,
+        "total_pairs": 816747,
+        "same_identity_rate": 0.03323917932970675,
+        "different_identity_rate": 0.9667608206702932
+      },
+      "ambiguous": {
+        "same_identity": 20864,
+        "different_identity": 38279749,
+        "total_pairs": 38300613,
+        "same_identity_rate": 0.000544743239488099,
+        "different_identity_rate": 0.999455256760512
+      },
+      "reject": {
+        "same_identity": 6,
+        "different_identity": 231342,
+        "total_pairs": 231348,
+        "same_identity_rate": 2.593495513252762e-05,
+        "different_identity_rate": 0.9999740650448675
+      }
+    },
+    "baseline_cosine_metrics": {
+      "mAP": 0.1886418408744511,
+      "cmc": {
+        "1": 0.33078994614003593,
+        "5": 0.47710951526032314,
+        "10": 0.547576301615799,
+        "20": 0.6090664272890485
+      },
+      "valid_queries": 2228
+    },
+    "ambiguous_only_perfect_oracle_metrics": {
+      "mAP": 0.22365350236643317,
+      "cmc": {
+        "1": 0.33078994614003593,
+        "5": 0.4780071813285458,
+        "10": 0.5502692998204668,
+        "20": 0.6135547576301615
+      },
+      "valid_queries": 2228
+    },
+    "oracle_gain": {
+      "mAP_absolute": 0.035011661491982066,
+      "rank1_absolute": 0.0
+    }
+  },
+  "topk_candidate_pool_analysis": {
+    "10": {
+      "k": 10,
+      "zone_composition": {
+        "high": {
+          "same_identity": 4862,
+          "different_identity": 17327,
+          "total_pairs": 22189,
+          "same_identity_rate": 0.21911758078327098,
+          "different_identity_rate": 0.780882419216729
+        },
+        "ambiguous": {
+          "same_identity": 11,
+          "different_identity": 80,
+          "total_pairs": 91,
+          "same_identity_rate": 0.12087912087912088,
+          "different_identity_rate": 0.8791208791208791
+        },
+        "reject": {
+          "same_identity": 0,
+          "different_identity": 0,
+          "total_pairs": 0,
+          "same_identity_rate": null,
+          "different_identity_rate": null
+        }
+      },
+      "rank1_failures": {
+        "wrong_top1_total": 1491,
+        "wrong_top1_zone_counts": {
+          "high": 1491,
+          "ambiguous": 0,
+          "reject": 0
+        },
+        "true_match_in_ambiguous_zone": 3,
+        "true_match_in_ambiguous_zone_rate": 0.002012072434607646
+      },
+      "valid_candidate_pairs": 22280,
+      "positive_similarity": {
+        "count": 4873,
+        "mean": 0.8146681785583496,
+        "std": 0.042697176337242126,
+        "quantiles": {
+          "0.0": 0.6802698373794556,
+          "0.05": 0.7444079756736756,
+          "0.25": 0.7855498790740967,
+          "0.5": 0.8151991367340088,
+          "0.75": 0.8443522453308105,
+          "0.95": 0.8848942518234253,
+          "1.0": 0.9458770751953125
+        }
+      },
+      "negative_similarity": {
+        "count": 17407,
+        "mean": 0.7998967170715332,
+        "std": 0.042586550116539,
+        "quantiles": {
+          "0.0": 0.6765636205673218,
+          "0.05": 0.7341182708740235,
+          "0.25": 0.7706039845943451,
+          "0.5": 0.7978025674819946,
+          "0.75": 0.8264367580413818,
+          "0.95": 0.8744405090808869,
+          "1.0": 0.9709334969520569
+        }
+      },
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "ambiguous_only_perfect_oracle_full_gallery_metrics": {
+        "mAP": 0.188716099819763,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_gain": {
+        "mAP_absolute": 7.42589453119058e-05,
+        "rank1_absolute": 0.0
+      }
+    },
+    "20": {
+      "k": 20,
+      "zone_composition": {
+        "high": {
+          "same_identity": 6778,
+          "different_identity": 37139,
+          "total_pairs": 43917,
+          "same_identity_rate": 0.1543365894756017,
+          "different_identity_rate": 0.8456634105243983
+        },
+        "ambiguous": {
+          "same_identity": 49,
+          "different_identity": 594,
+          "total_pairs": 643,
+          "same_identity_rate": 0.07620528771384137,
+          "different_identity_rate": 0.9237947122861586
+        },
+        "reject": {
+          "same_identity": 0,
+          "different_identity": 0,
+          "total_pairs": 0,
+          "same_identity_rate": null,
+          "different_identity_rate": null
+        }
+      },
+      "rank1_failures": {
+        "wrong_top1_total": 1491,
+        "wrong_top1_zone_counts": {
+          "high": 1491,
+          "ambiguous": 0,
+          "reject": 0
+        },
+        "true_match_in_ambiguous_zone": 11,
+        "true_match_in_ambiguous_zone_rate": 0.007377598926894702
+      },
+      "valid_candidate_pairs": 44560,
+      "positive_similarity": {
+        "count": 6827,
+        "mean": 0.8038812279701233,
+        "std": 0.044835031032562256,
+        "quantiles": {
+          "0.0": 0.665834903717041,
+          "0.05": 0.728356409072876,
+          "0.25": 0.7738584578037262,
+          "0.5": 0.8038586974143982,
+          "0.75": 0.833886593580246,
+          "0.95": 0.8779923796653747,
+          "1.0": 0.9458770751953125
+        }
+      },
+      "negative_similarity": {
+        "count": 37733,
+        "mean": 0.7860285043716431,
+        "std": 0.04323142021894455,
+        "quantiles": {
+          "0.0": 0.6427567005157471,
+          "0.05": 0.7193517208099365,
+          "0.25": 0.7564722299575806,
+          "0.5": 0.7842321395874023,
+          "0.75": 0.8128162622451782,
+          "0.95": 0.8598758220672608,
+          "1.0": 0.9709334969520569
+        }
+      },
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "ambiguous_only_perfect_oracle_full_gallery_metrics": {
+        "mAP": 0.18893600363133353,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.4780071813285458,
+          "10": 0.5489228007181328,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_gain": {
+        "mAP_absolute": 0.0002941627568824323,
+        "rank1_absolute": 0.0
+      }
+    },
+    "50": {
+      "k": 50,
+      "zone_composition": {
+        "high": {
+          "same_identity": 9327,
+          "different_identity": 96290,
+          "total_pairs": 105617,
+          "same_identity_rate": 0.08830964712120208,
+          "different_identity_rate": 0.911690352878798
+        },
+        "ambiguous": {
+          "same_identity": 227,
+          "different_identity": 5556,
+          "total_pairs": 5783,
+          "same_identity_rate": 0.039252982880857684,
+          "different_identity_rate": 0.9607470171191423
+        },
+        "reject": {
+          "same_identity": 0,
+          "different_identity": 0,
+          "total_pairs": 0,
+          "same_identity_rate": null,
+          "different_identity_rate": null
+        }
+      },
+      "rank1_failures": {
+        "wrong_top1_total": 1491,
+        "wrong_top1_zone_counts": {
+          "high": 1491,
+          "ambiguous": 0,
+          "reject": 0
+        },
+        "true_match_in_ambiguous_zone": 54,
+        "true_match_in_ambiguous_zone_rate": 0.03621730382293763
+      },
+      "valid_candidate_pairs": 111400,
+      "positive_similarity": {
+        "count": 9554,
+        "mean": 0.7912789583206177,
+        "std": 0.0476369746029377,
+        "quantiles": {
+          "0.0": 0.646807074546814,
+          "0.05": 0.7138196051120758,
+          "0.25": 0.7581634968519211,
+          "0.5": 0.7910267114639282,
+          "0.75": 0.8236169219017029,
+          "0.95": 0.871465876698494,
+          "1.0": 0.9458770751953125
+        }
+      },
+      "negative_similarity": {
+        "count": 101846,
+        "mean": 0.7664033770561218,
+        "std": 0.043896693736314774,
+        "quantiles": {
+          "0.0": 0.6176663637161255,
+          "0.05": 0.6982239484786987,
+          "0.25": 0.7365745157003403,
+          "0.5": 0.7646844983100891,
+          "0.75": 0.7935944348573685,
+          "0.95": 0.840804785490036,
+          "1.0": 0.9709334969520569
+        }
+      },
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "ambiguous_only_perfect_oracle_full_gallery_metrics": {
+        "mAP": 0.18979501489472944,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.4780071813285458,
+          "10": 0.5498204667863554,
+          "20": 0.6108617594254937
+        },
+        "valid_queries": 2228
+      },
+      "oracle_gain": {
+        "mAP_absolute": 0.0011531740202783414,
+        "rank1_absolute": 0.0
+      }
+    }
+  },
+  "rank1_failure_diagnostic": {
+    "failure_count": 1491,
+    "failure_rate_among_valid_queries": 0.6692100538599641,
+    "best_true_match_within_rank": {
+      "2": {
+        "count": 142,
+        "rate": 0.09523809523809523
+      },
+      "5": {
+        "count": 326,
+        "rate": 0.21864520456069753
+      },
+      "10": {
+        "count": 483,
+        "rate": 0.323943661971831
+      },
+      "20": {
+        "count": 620,
+        "rate": 0.41582830315224684
+      },
+      "50": {
+        "count": 799,
+        "rate": 0.5358819584171697
+      },
+      "100": {
+        "count": 930,
+        "rate": 0.6237424547283702
+      }
+    },
+    "similarity_gap": {
+      "count": 1491,
+      "mean": 0.09191183000802994,
+      "median": 0.07115185260772705,
+      "quantiles": {
+        "0": 0.00011622905731201172,
+        "0.05": 0.007783234119415283,
+        "0.25": 0.0347905158996582,
+        "0.5": 0.07115185260772705,
+        "0.75": 0.12934726476669312,
+        "0.95": 0.24235603213310242,
+        "1": 0.4148634076118469
+      }
+    },
+    "gap_at_most": {
+      "0.01": 0.0670690811535882,
+      "0.02": 0.1441985244802146,
+      "0.05": 0.3494299128101945,
+      "0.1": 0.6472166331321261,
+      "0.2": 0.8993963782696177
+    },
+    "detailed_csv": "D:\\deep-person-reid\\artifacts\\market_to_duke_relative_ambiguity_oracle_rank1_failures.csv"
+  },
+  "relative_ambiguity_oracle_analysis": {
+    "0.01_top20": {
+      "delta": 0.01,
+      "topk_limit": 20,
+      "average_ambiguity_candidate_set_size": 1.9084380610412925,
+      "semantic_arbitration_query_count": 1102,
+      "semantic_arbitration_query_rate": 0.49461400359066426,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.19130380774626646,
+        "cmc": {
+          "1": 0.375673249551167,
+          "5": 0.4780071813285458,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.0026619668718153577,
+        "rank1": 0.04488330341113106
+      }
+    },
+    "0.02_top20": {
+      "delta": 0.02,
+      "topk_limit": 20,
+      "average_ambiguity_candidate_set_size": 3.515709156193896,
+      "semantic_arbitration_query_count": 1645,
+      "semantic_arbitration_query_rate": 0.7383303411131059,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.19703152355149733,
+        "cmc": {
+          "1": 0.4268402154398564,
+          "5": 0.49012567324955114,
+          "10": 0.5484739676840216,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.008389682677046234,
+        "rank1": 0.09605026929982047
+      }
+    },
+    "0.05_top20": {
+      "delta": 0.05,
+      "topk_limit": 20,
+      "average_ambiguity_candidate_set_size": 11.890933572710951,
+      "semantic_arbitration_query_count": 2141,
+      "semantic_arbitration_query_rate": 0.9609515260323159,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.22886118611262704,
+        "cmc": {
+          "1": 0.5457809694793537,
+          "5": 0.5646319569120287,
+          "10": 0.5830341113105925,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.04021934523817594,
+        "rank1": 0.2149910233393178
+      }
+    },
+    "0.1_top20": {
+      "delta": 0.1,
+      "topk_limit": 20,
+      "average_ambiguity_candidate_set_size": 18.526032315978455,
+      "semantic_arbitration_query_count": 2223,
+      "semantic_arbitration_query_rate": 0.9977558348294434,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.2567658712067414,
+        "cmc": {
+          "1": 0.6018850987432675,
+          "5": 0.604129263913824,
+          "10": 0.6063734290843806,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.06812403033229028,
+        "rank1": 0.2710951526032315
+      }
+    },
+    "0.01_top50": {
+      "delta": 0.01,
+      "topk_limit": 50,
+      "average_ambiguity_candidate_set_size": 1.9084380610412925,
+      "semantic_arbitration_query_count": 1102,
+      "semantic_arbitration_query_rate": 0.49461400359066426,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.19130380774626646,
+        "cmc": {
+          "1": 0.375673249551167,
+          "5": 0.4780071813285458,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.0026619668718153577,
+        "rank1": 0.04488330341113106
+      }
+    },
+    "0.02_top50": {
+      "delta": 0.02,
+      "topk_limit": 50,
+      "average_ambiguity_candidate_set_size": 3.5282764811490126,
+      "semantic_arbitration_query_count": 1645,
+      "semantic_arbitration_query_rate": 0.7383303411131059,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.19706736785630485,
+        "cmc": {
+          "1": 0.4272890484739677,
+          "5": 0.4905745062836625,
+          "10": 0.5489228007181328,
+          "20": 0.6095152603231598
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.008425526981853754,
+        "rank1": 0.09649910233393177
+      }
+    },
+    "0.05_top50": {
+      "delta": 0.05,
+      "topk_limit": 50,
+      "average_ambiguity_candidate_set_size": 16.28456014362657,
+      "semantic_arbitration_query_count": 2141,
+      "semantic_arbitration_query_rate": 0.9609515260323159,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.23710532681263738,
+        "cmc": {
+          "1": 0.5623877917414721,
+          "5": 0.5812387791741472,
+          "10": 0.599640933572711,
+          "20": 0.625673249551167
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.04846348593818628,
+        "rank1": 0.2315978456014362
+      }
+    },
+    "0.1_top50": {
+      "delta": 0.1,
+      "topk_limit": 50,
+      "average_ambiguity_candidate_set_size": 41.35188509874327,
+      "semantic_arbitration_query_count": 2223,
+      "semantic_arbitration_query_rate": 0.9977558348294434,
+      "baseline_full_gallery_metrics": {
+        "mAP": 0.1886418408744511,
+        "cmc": {
+          "1": 0.33078994614003593,
+          "5": 0.47710951526032314,
+          "10": 0.547576301615799,
+          "20": 0.6090664272890485
+        },
+        "valid_queries": 2228
+      },
+      "oracle_full_gallery_metrics": {
+        "mAP": 0.3066159719788054,
+        "cmc": {
+          "1": 0.6741472172351886,
+          "5": 0.676391382405745,
+          "10": 0.6786355475763016,
+          "20": 0.6813285457809695
+        },
+        "valid_queries": 2228
+      },
+      "absolute_gain": {
+        "mAP": 0.11797413110435431,
+        "rank1": 0.3433572710951526
+      }
+    }
+  },
+  "relative_ambiguity_definition": "For each query, take the Top-K valid cosine candidates, then retain the prefix with similarity >= baseline Top-1 similarity minus delta. The baseline Top-1 is always included. The perfect oracle moves same-ID candidates above different-ID candidates only inside this set.",
+  "candidate_pool_definition": "Top-K cosine-ranked gallery samples after excluding same-PID/same-camera invalid pairs.",
+  "oracle_definition": "Only ambiguous candidates inside each Top-K valid pool are reordered: same-ID before different-ID. High, Reject, and all candidates outside Top-K keep cosine order. mAP/CMC always use the complete valid gallery ranking."
+}

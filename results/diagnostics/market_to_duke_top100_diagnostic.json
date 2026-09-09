@@ -1,0 +1,31 @@
+{
+  "population": {
+    "baseline_rank1_failures": 1491,
+    "baseline_failures_without_true_match_top20": 871
+  },
+  "best_true_rank_for_original_871": {
+    "rank_21_50": {
+      "count": 179,
+      "percentage": 0.20551090700344432
+    },
+    "rank_51_100": {
+      "count": 131,
+      "percentage": 0.15040183696900114
+    },
+    "rank_gt_100": {
+      "count": 561,
+      "percentage": 0.6440872560275546
+    }
+  },
+  "cumulative_retrieval_recall_all_queries": {
+    "Recall@10": 0.547576301615799,
+    "Recall@20": 0.6090664272890485,
+    "Recall@50": 0.6894075403949731,
+    "Recall@100": 0.7482046678635548
+  },
+  "original_871_recoverability": {
+    "recoverable_by_expanding_top20_to_top50": 179,
+    "additionally_recoverable_top50_to_top100": 131,
+    "still_outside_top100": 561
+  }
+}

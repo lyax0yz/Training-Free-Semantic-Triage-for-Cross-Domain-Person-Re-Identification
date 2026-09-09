@@ -1,0 +1,23 @@
+{
+  "candidate_topk": 20,
+  "candidate_delta": 0.02,
+  "lambda_sem": 0.05,
+  "min_vote_agreement": 0.5,
+  "reliability_threshold": 0.25,
+  "minimum_pair_quality": 0.25,
+  "quality_confidence_weight": 0.3333333333333333,
+  "quality_agreement_weight": 0.3333333333333333,
+  "quality_known_weight": 0.3333333333333333,
+  "attribute_weights": {
+    "gender": 0.75,
+    "build": 0.75,
+    "age": 0.75,
+    "upper_colour": 1.0,
+    "upper_type": 0.5,
+    "lower_colour": 1.0,
+    "lower_type": 0.5,
+    "backpack": 0.75,
+    "handbag": 0.75,
+    "hat": 0.75
+  }
+}

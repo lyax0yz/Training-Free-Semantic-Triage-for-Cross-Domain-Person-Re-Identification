@@ -1,0 +1,26 @@
+{
+  "method": "Zhong et al. standard k-reciprocal reranking",
+  "parameters": {
+    "k1": 20,
+    "k2": 6,
+    "lambda_value": 0.3
+  },
+  "distance_matrix": "D:\\deep-person-reid\\artifacts\\market_to_duke_k_reciprocal_distmat.partial.npy",
+  "shape": [
+    2228,
+    17661
+  ],
+  "metrics": {
+    "mAP": 0.2917759476615142,
+    "Rank-1": 0.39497307001795334,
+    "Rank-5": 0.5022441651705566,
+    "Rank-10": 0.5601436265709157,
+    "Rank-20": 0.6045780969479354,
+    "Rank-50": 0.6750448833034112,
+    "Rank-100": 0.7329443447037702,
+    "Recall@10": 0.5601436265709157,
+    "Recall@20": 0.6045780969479354,
+    "Recall@50": 0.6750448833034112,
+    "Recall@100": 0.7329443447037702
+  }
+}

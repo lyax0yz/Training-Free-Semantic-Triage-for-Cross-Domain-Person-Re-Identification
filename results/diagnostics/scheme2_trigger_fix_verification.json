@@ -1,0 +1,211 @@
+{
+  "scope": "Configuration D read-only consistency audit",
+  "protocol": {
+    "topk": 20,
+    "delta": 0.02,
+    "lambda_sem": 0.05
+  },
+  "definitions": {
+    "triggered_query_count": "ambiguity_size > 1",
+    "semantically_score_modified_query_count": "at least one ambiguity candidate has abs(effective_semantic_adjustment) > 1e-12",
+    "internal_ranking_changed": "the rescored ambiguity prefix differs from its visual-order prefix"
+  },
+  "counts": {
+    "total_queries": 2228,
+    "A_ambiguity_size_eq_1": 583,
+    "B_ambiguity_size_gt_1": 1645,
+    "C_any_semantic_score_changed": 1644,
+    "D_internal_ranking_changed": 1102,
+    "B_intersection_C": 1644,
+    "not_B_intersection_C": 0,
+    "B_intersection_not_C": 1,
+    "A_intersection_D": 0,
+    "D_intersection_not_B": 0
+  },
+  "outside_ambiguity_verification": {
+    "semantic_calls_outside_ambiguity": 0,
+    "outside_valid_candidate_score_values_checked": 39326677,
+    "outside_valid_candidate_score_violations": 0,
+    "outside_tail_order_values_checked": 39326677,
+    "queries_with_outside_tail_order_violation": 0,
+    "maximum_outside_score_difference": 0.0
+  },
+  "singleton_verification": {
+    "singleton_query_count": 583,
+    "semantic_calls": 0,
+    "valid_score_values_checked": 10292897,
+    "valid_score_violations": 0,
+    "full_ranking_violations": 0,
+    "maximum_valid_score_difference": 0.0
+  },
+  "interpretation": {
+    "not_B_intersection_C_reason": "After the trigger fix this intersection must be zero: singleton queries do not load attributes, compute adjustments or write semantic score deltas.",
+    "finding": "The fixed implementation executes semantic arbitration only when ambiguity_size is greater than one. Singleton queries preserve all OSNet scores and ranking. Candidate eligibility remains confined to the ambiguity set."
+  },
+  "metric_precision_verification": {
+    "configurations": {
+      "A": {
+        "before": {
+          "mAP": 0.18864183184213013,
+          "Rank-1": 0.33078994614003593,
+          "Rank-5": 0.47710951526032314,
+          "Rank-10": 0.547576301615799
+        },
+        "after": {
+          "mAP": 0.18864183184213013,
+          "Rank-1": 0.33078994614003593,
+          "Rank-5": 0.47710951526032314,
+          "Rank-10": 0.547576301615799
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        }
+      },
+      "B": {
+        "before": {
+          "mAP": 0.18948121328153097,
+          "Rank-1": 0.3402154398563734,
+          "Rank-5": 0.4793536804308797,
+          "Rank-10": 0.5471274685816876
+        },
+        "after": {
+          "mAP": 0.18948121328153097,
+          "Rank-1": 0.3402154398563734,
+          "Rank-5": 0.4793536804308797,
+          "Rank-10": 0.5471274685816876
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        },
+        "score_modified_query_count": {
+          "before": 2097,
+          "after": 1582
+        },
+        "ranking_changed_query_count": {
+          "before": 756,
+          "after": 756
+        }
+      },
+      "C": {
+        "before": {
+          "mAP": 0.1899748761073588,
+          "Rank-1": 0.3469479353680431,
+          "Rank-5": 0.48070017953321365,
+          "Rank-10": 0.5480251346499102
+        },
+        "after": {
+          "mAP": 0.1899748761073588,
+          "Rank-1": 0.3469479353680431,
+          "Rank-5": 0.48070017953321365,
+          "Rank-10": 0.5480251346499102
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        },
+        "score_modified_query_count": {
+          "before": 2206,
+          "after": 1644
+        },
+        "ranking_changed_query_count": {
+          "before": 1113,
+          "after": 1113
+        }
+      },
+      "D": {
+        "before": {
+          "mAP": 0.19026679839573873,
+          "Rank-1": 0.3500897666068223,
+          "Rank-5": 0.48249551166965887,
+          "Rank-10": 0.5480251346499102
+        },
+        "after": {
+          "mAP": 0.19026679839573873,
+          "Rank-1": 0.3500897666068223,
+          "Rank-5": 0.48249551166965887,
+          "Rank-10": 0.5480251346499102
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        },
+        "score_modified_query_count": {
+          "before": 2220,
+          "after": 1644
+        },
+        "ranking_changed_query_count": {
+          "before": 1102,
+          "after": 1102
+        }
+      },
+      "E": {
+        "before": {
+          "mAP": 0.19028300708443388,
+          "Rank-1": 0.34605026929982047,
+          "Rank-5": 0.48159784560143626,
+          "Rank-10": 0.5484739676840216
+        },
+        "after": {
+          "mAP": 0.19028300708443388,
+          "Rank-1": 0.34605026929982047,
+          "Rank-5": 0.48159784560143626,
+          "Rank-10": 0.5484739676840216
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        },
+        "score_modified_query_count": {
+          "before": 2210,
+          "after": 1643
+        },
+        "ranking_changed_query_count": {
+          "before": 1092,
+          "after": 1092
+        }
+      },
+      "F": {
+        "before": {
+          "mAP": 0.19027383259358102,
+          "Rank-1": 0.34560143626570916,
+          "Rank-5": 0.48159784560143626,
+          "Rank-10": 0.5484739676840216
+        },
+        "after": {
+          "mAP": 0.19027383259358102,
+          "Rank-1": 0.34560143626570916,
+          "Rank-5": 0.48159784560143626,
+          "Rank-10": 0.5484739676840216
+        },
+        "difference": {
+          "mAP": 0.0,
+          "Rank-1": 0.0,
+          "Rank-5": 0.0,
+          "Rank-10": 0.0
+        },
+        "score_modified_query_count": {
+          "before": 2210,
+          "after": 1643
+        },
+        "ranking_changed_query_count": {
+          "before": 1073,
+          "after": 1073
+        }
+      }
+    },
+    "maximum_absolute_metric_difference": 0.0,
+    "all_map_cmc_values_exactly_identical": true
+  }
+}

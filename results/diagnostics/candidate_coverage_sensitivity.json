@@ -1,0 +1,45 @@
+{
+  "fixed_configuration": {
+    "attributes": [
+      "upper_colour",
+      "lower_colour"
+    ],
+    "confidence_threshold": 0.25,
+    "lambda_sem": 0.05,
+    "description": "Existing cached CLIP attributes and existing relative semantic reranking; only Top-K and delta vary."
+  },
+  "results": {
+    "topk=20|delta=0.02": {
+      "topk": 20,
+      "delta": 0.02,
+      "baseline_rank1_failure_count": 1491,
+      "true_match_inside_ambiguity_count": 214,
+      "semantic_wrong_to_correct_count": 50,
+      "harmful_correct_to_wrong_count": 36
+    },
+    "topk=20|delta=0.05": {
+      "topk": 20,
+      "delta": 0.05,
+      "baseline_rank1_failure_count": 1491,
+      "true_match_inside_ambiguity_count": 479,
+      "semantic_wrong_to_correct_count": 74,
+      "harmful_correct_to_wrong_count": 80
+    },
+    "topk=50|delta=0.02": {
+      "topk": 50,
+      "delta": 0.02,
+      "baseline_rank1_failure_count": 1491,
+      "true_match_inside_ambiguity_count": 215,
+      "semantic_wrong_to_correct_count": 50,
+      "harmful_correct_to_wrong_count": 36
+    },
+    "topk=50|delta=0.05": {
+      "topk": 50,
+      "delta": 0.05,
+      "baseline_rank1_failure_count": 1491,
+      "true_match_inside_ambiguity_count": 516,
+      "semantic_wrong_to_correct_count": 73,
+      "harmful_correct_to_wrong_count": 80
+    }
+  }
+}

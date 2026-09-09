@@ -1,0 +1,73 @@
+{
+  "fixed_configuration": {
+    "topk": 20,
+    "delta": 0.02,
+    "attributes": [
+      "upper_colour",
+      "lower_colour"
+    ],
+    "confidence_threshold": 0.25,
+    "lambda_sem": 0.05
+  },
+  "baseline": {
+    "mAP": 0.18864183184213013,
+    "Rank-1": 0.33078994614003593,
+    "Rank-5": 0.47710951526032314,
+    "Rank-10": 0.547576301615799
+  },
+  "semantic_triggered_query_count": 1645,
+  "semantic_triggered_query_rate": 0.7383303411131059,
+  "fusion_ablations": {
+    "signed_equal": {
+      "metrics": {
+        "mAP": 0.18906582422743434,
+        "Rank-1": 0.3370736086175943,
+        "Rank-5": 0.4780071813285458,
+        "Rank-10": 0.547576301615799
+      },
+      "change_from_baseline": {
+        "mAP": 0.0004239923853042171,
+        "Rank-1": 0.006283662477558349,
+        "Rank-5": 0.0008976660682226689,
+        "Rank-10": 0.0
+      },
+      "wrong_to_correct_count": 50,
+      "correct_to_wrong_count": 36,
+      "net_rank1_correction_count": 14
+    },
+    "reward_only": {
+      "metrics": {
+        "mAP": 0.18892365931093794,
+        "Rank-1": 0.335278276481149,
+        "Rank-5": 0.47755834829443444,
+        "Rank-10": 0.547576301615799
+      },
+      "change_from_baseline": {
+        "mAP": 0.0002818274688078104,
+        "Rank-1": 0.004488330341113067,
+        "Rank-5": 0.0004488330341113067,
+        "Rank-10": 0.0
+      },
+      "wrong_to_correct_count": 43,
+      "correct_to_wrong_count": 33,
+      "net_rank1_correction_count": 10
+    },
+    "confidence_weighted_penalty": {
+      "metrics": {
+        "mAP": 0.18903230696552495,
+        "Rank-1": 0.335278276481149,
+        "Rank-5": 0.4784560143626571,
+        "Rank-10": 0.5480251346499102
+      },
+      "change_from_baseline": {
+        "mAP": 0.0003904751233948234,
+        "Rank-1": 0.004488330341113067,
+        "Rank-5": 0.0013464991023339756,
+        "Rank-10": 0.0004488330341112512
+      },
+      "wrong_to_correct_count": 45,
+      "correct_to_wrong_count": 35,
+      "net_rank1_correction_count": 10
+    }
+  }
+}

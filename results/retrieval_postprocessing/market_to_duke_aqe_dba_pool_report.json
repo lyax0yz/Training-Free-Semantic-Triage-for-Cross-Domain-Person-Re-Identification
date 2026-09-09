@@ -1,0 +1,124 @@
+{
+  "protocol": {
+    "source_target": "Market-1501 to DukeMTMC-reID",
+    "features": "L2-normalized existing OSNet features",
+    "similarity": "cosine",
+    "pid_or_camera_used_for_augmentation": false,
+    "iterations": 1,
+    "weighting": "uniform average",
+    "aqe": {
+      "gallery_neighbors": 10,
+      "includes_query_self": true
+    },
+    "dba": {
+      "gallery_neighbors_excluding_self": 10,
+      "includes_gallery_self": true
+    },
+    "combined_order": "DBA first, then AQE against the augmented gallery"
+  },
+  "baseline": {
+    "metrics": {
+      "mAP": 0.18864183184213013,
+      "Rank-1": 0.33078994614003593,
+      "Rank-5": 0.47710951526032314,
+      "Rank-10": 0.547576301615799,
+      "Rank-20": 0.6090664272890485,
+      "Rank-50": 0.6894075403949731,
+      "Rank-100": 0.7482046678635548,
+      "Recall@10": 0.547576301615799,
+      "Recall@20": 0.6090664272890485,
+      "Recall@50": 0.6894075403949731,
+      "Recall@100": 0.7482046678635548
+    },
+    "top20_available_count": 1357,
+    "top20_unavailable_count": 871
+  },
+  "methods": {
+    "AQE": {
+      "metrics": {
+        "mAP": 0.21371374229730797,
+        "Rank-1": 0.33258527827648116,
+        "Rank-5": 0.44389587073608616,
+        "Rank-10": 0.49371633752244165,
+        "Rank-20": 0.5426391382405745,
+        "Rank-50": 0.6131059245960503,
+        "Rank-100": 0.6660682226211849,
+        "Recall@10": 0.49371633752244165,
+        "Recall@20": 0.5426391382405745,
+        "Recall@50": 0.6131059245960503,
+        "Recall@100": 0.6660682226211849
+      },
+      "top20_operable_pool_movement": {
+        "original_unavailable_moved_into_top20": 38,
+        "original_available_moved_out_of_top20": 186,
+        "net_top20_operable_pool_change": -148
+      }
+    },
+    "DBA": {
+      "metrics": {
+        "mAP": 0.22675717782923974,
+        "Rank-1": 0.3523339317773788,
+        "Rank-5": 0.4910233393177738,
+        "Rank-10": 0.5516157989228008,
+        "Rank-20": 0.5951526032315978,
+        "Rank-50": 0.6651705565529623,
+        "Rank-100": 0.7208258527827648,
+        "Recall@10": 0.5516157989228008,
+        "Recall@20": 0.5951526032315978,
+        "Recall@50": 0.6651705565529623,
+        "Recall@100": 0.7208258527827648
+      },
+      "top20_operable_pool_movement": {
+        "original_unavailable_moved_into_top20": 87,
+        "original_available_moved_out_of_top20": 118,
+        "net_top20_operable_pool_change": -31
+      }
+    },
+    "AQE+DBA": {
+      "metrics": {
+        "mAP": 0.24601842084465284,
+        "Rank-1": 0.36938958707360864,
+        "Rank-5": 0.45646319569120286,
+        "Rank-10": 0.505834829443447,
+        "Rank-20": 0.5435368043087971,
+        "Rank-50": 0.5969479353680431,
+        "Rank-100": 0.6386894075403949,
+        "Recall@10": 0.505834829443447,
+        "Recall@20": 0.5435368043087971,
+        "Recall@50": 0.5969479353680431,
+        "Recall@100": 0.6386894075403949
+      },
+      "top20_operable_pool_movement": {
+        "original_unavailable_moved_into_top20": 78,
+        "original_available_moved_out_of_top20": 224,
+        "net_top20_operable_pool_change": -146
+      }
+    }
+  },
+  "existing_k_reciprocal": {
+    "parameters": {
+      "k1": 20,
+      "k2": 6,
+      "lambda_value": 0.3,
+      "distance": "cosine distance on L2-normalized OSNet features"
+    },
+    "metrics": {
+      "mAP": 0.2917759476615142,
+      "Rank-1": 0.39497307001795334,
+      "Rank-5": 0.5022441651705566,
+      "Rank-10": 0.5601436265709157,
+      "Rank-20": 0.6045780969479354,
+      "Rank-50": 0.6750448833034112,
+      "Rank-100": 0.7329443447037702,
+      "Recall@20": 0.6045780969479354,
+      "Recall@50": 0.6750448833034112,
+      "Recall@100": 0.7329443447037702,
+      "Recall@10": 0.5601436265709157
+    },
+    "top20_operable_pool_movement": {
+      "original_unavailable_moved_into_top20": 111,
+      "original_available_moved_out_of_top20": 121,
+      "net_top20_operable_pool_change": -10
+    }
+  }
+}

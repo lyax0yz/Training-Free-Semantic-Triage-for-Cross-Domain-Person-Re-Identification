@@ -1,0 +1,73 @@
+{
+  "experiment": "Frozen Scheme 2 configuration D external validation",
+  "source": "market1501",
+  "target": "msmt17",
+  "ranking_source": "OSNet cosine",
+  "ranking_score_definition": "cosine similarity of L2-normalized OSNet features",
+  "fixed_configuration": {
+    "topk": 20,
+    "delta": 0.02,
+    "lambda_sem": 0.05,
+    "attributes": [
+      "gender",
+      "build",
+      "age",
+      "upper_colour",
+      "upper_type",
+      "lower_colour",
+      "lower_type",
+      "backpack",
+      "handbag",
+      "hat"
+    ],
+    "attribute_weights": {
+      "gender": 0.75,
+      "build": 0.75,
+      "age": 0.75,
+      "upper_colour": 1.0,
+      "upper_type": 0.5,
+      "lower_colour": 1.0,
+      "lower_type": 0.5,
+      "backpack": 0.75,
+      "handbag": 0.75,
+      "hat": 0.75
+    },
+    "scheme2_variant": "D: SymbolRegistry + deterministic multi-view voting; no gate/quality mask"
+  },
+  "baseline": {
+    "mAP": 0.03298826246150124,
+    "Rank-1": 0.09606312719787288,
+    "Rank-5": 0.16236383909426194,
+    "Rank-10": 0.2060210995797238
+  },
+  "scheme2_D": {
+    "mAP": 0.03370742641802955,
+    "Rank-1": 0.10970066043399948,
+    "Rank-5": 0.16759584870057467,
+    "Rank-10": 0.2071361180204134
+  },
+  "change_from_baseline": {
+    "mAP": 0.0007191639565283098,
+    "Rank-1": 0.013637533236126598,
+    "Rank-5": 0.005232009606312732,
+    "Rank-10": 0.0011150184406895913
+  },
+  "candidate_statistics": {
+    "query_count": 11659,
+    "triggered_query_count": 9956,
+    "triggered_query_rate": 0.8539325842696629,
+    "average_ambiguity_size": 5.582125396689253
+  },
+  "semantic_statistics": {
+    "semantically_score_modified_query_count": 9955,
+    "ranking_changed_query_count": 7745,
+    "wrong_to_correct_count": 261,
+    "correct_to_wrong_count": 102,
+    "net_rank1_correction_count": 159,
+    "average_accepted_attributes_per_pair": 9.295555310118493,
+    "semantic_abstention_rate": 0.0704444689881506,
+    "true_match_attribute_agreement_rate": 0.7359284758703951,
+    "false_match_attribute_agreement_rate": 0.6024591044519567
+  },
+  "inference_label_policy": "No PID/camera labels used in candidate scoring or semantic fusion."
+}

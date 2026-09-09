@@ -1,0 +1,44 @@
+{
+  "method": "Zhong et al. standard k-reciprocal reranking",
+  "parameters": {
+    "k1": 20,
+    "k2": 6,
+    "lambda_value": 0.3,
+    "distance": "cosine distance on L2-normalized OSNet features"
+  },
+  "baseline_metrics": {
+    "mAP": 0.18864183184213013,
+    "Rank-1": 0.33078994614003593,
+    "Rank-5": 0.47710951526032314,
+    "Rank-10": 0.547576301615799,
+    "Rank-20": 0.6090664272890485,
+    "Rank-50": 0.6894075403949731,
+    "Rank-100": 0.7482046678635548,
+    "Recall@20": 0.6090664272890485,
+    "Recall@50": 0.6894075403949731,
+    "Recall@100": 0.7482046678635548
+  },
+  "reranked_metrics": {
+    "mAP": 0.2917759476615142,
+    "Rank-1": 0.39497307001795334,
+    "Rank-5": 0.5022441651705566,
+    "Rank-10": 0.5601436265709157,
+    "Rank-20": 0.6045780969479354,
+    "Rank-50": 0.6750448833034112,
+    "Rank-100": 0.7329443447037702,
+    "Recall@20": 0.6045780969479354,
+    "Recall@50": 0.6750448833034112,
+    "Recall@100": 0.7329443447037702
+  },
+  "reranked_failure_funnel": {
+    "total_rank1_failures": 1348,
+    "true_match_absent_top20": 881,
+    "true_match_present_top20": 467,
+    "original_871_moved_into_top20": 111
+  },
+  "true_match_top20_movement_all_queries": {
+    "outside_top20_to_inside_top20": 111,
+    "inside_top20_to_outside_top20": 121,
+    "net_top20_pool_change": -10
+  }
+}

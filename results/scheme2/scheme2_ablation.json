@@ -1,0 +1,717 @@
+{
+  "protocol": {
+    "source": "market1501",
+    "target": "dukemtmcreid",
+    "topk": 20,
+    "delta": 0.02,
+    "lambda_sem": 0.05,
+    "query_count": 2228,
+    "semantic_trigger_rule": "ambiguity_size > 1",
+    "singleton_policy": "preserve complete OSNet ranking; no semantic attribute access",
+    "ground_truth_policy": "evaluation and post-hoc diagnostics only"
+  },
+  "semantic_model": "google/siglip2-base-patch16-224",
+  "fixed_configuration": {
+    "lambda_sem": 0.05,
+    "min_vote_agreement": 0.5,
+    "reliability_threshold": 0.25,
+    "minimum_pair_quality": 0.25,
+    "quality_confidence_weight": 0.3333333333333333,
+    "quality_agreement_weight": 0.3333333333333333,
+    "quality_known_weight": 0.3333333333333333,
+    "attribute_weights": {
+      "gender": 0.75,
+      "build": 0.75,
+      "age": 0.75,
+      "upper_colour": 1.0,
+      "upper_type": 0.5,
+      "lower_colour": 1.0,
+      "lower_type": 0.5,
+      "backpack": 0.75,
+      "handbag": 0.75,
+      "hat": 0.75
+    }
+  },
+  "candidate_set": {
+    "average_ambiguity_size": 3.515709156193896,
+    "triggered_query_count": 1645,
+    "triggered_query_rate": 0.7383303411131059
+  },
+  "configurations": {
+    "A": {
+      "label": "OSNet baseline",
+      "metrics": {
+        "mAP": 0.18864183184213013,
+        "Rank-1": 0.33078994614003593,
+        "Rank-5": 0.47710951526032314,
+        "Rank-10": 0.547576301615799
+      }
+    },
+    "B": {
+      "label": "existing single-view SigLIP2 colour-only",
+      "metrics": {
+        "mAP": 0.18948121328153097,
+        "Rank-1": 0.3402154398563734,
+        "Rank-5": 0.4793536804308797,
+        "Rank-10": 0.5471274685816876
+      },
+      "change_from_baseline": {
+        "mAP": 0.0008393814394008492,
+        "Rank-1": 0.009425493716337496,
+        "Rank-5": 0.002244165170556589,
+        "Rank-10": -0.0004488330341113622
+      },
+      "wrong_to_correct_count": 57,
+      "correct_to_wrong_count": 36,
+      "net_rank1_correction_count": 21,
+      "semantically_score_modified_query_count": 1582,
+      "ranking_changed_query_count": 756,
+      "average_accepted_attributes_per_candidate_pair": 1.7009655172413793,
+      "semantic_abstention_rate": 0.14951724137931033,
+      "harmful_case_count": 36,
+      "semantic_agreement": {
+        "true_match_rate": 0.7220376522702104,
+        "false_match_rate": 0.4967265925387093
+      },
+      "average_semantic_reliability": {
+        "successful_cases": 0.4693837714822669,
+        "harmful_cases": 0.4500749529235893
+      },
+      "per_attribute_uncertainty": {
+        "upper_colour": {
+          "known_pair_rate": 0.9761379310344828,
+          "accepted_after_gating_rate": 0.9761379310344828,
+          "mean_reliability_for_known_pairs": 0.5084448611987282,
+          "abstention_rate": 0.023862068965517236
+        },
+        "lower_colour": {
+          "known_pair_rate": 0.7248275862068966,
+          "accepted_after_gating_rate": 0.7248275862068966,
+          "mean_reliability_for_known_pairs": 0.4465496638352025,
+          "abstention_rate": 0.2751724137931034
+        }
+      },
+      "case_counts": {
+        "corrected": 57,
+        "harmful": 36,
+        "reachable_not_corrected": 157
+      }
+    },
+    "C": {
+      "label": "proper attributes only",
+      "metrics": {
+        "mAP": 0.1899748761073588,
+        "Rank-1": 0.3469479353680431,
+        "Rank-5": 0.48070017953321365,
+        "Rank-10": 0.5480251346499102
+      },
+      "change_from_baseline": {
+        "mAP": 0.0013330442652286778,
+        "Rank-1": 0.016157989228007152,
+        "Rank-5": 0.003590664272890509,
+        "Rank-10": 0.0004488330341112512
+      },
+      "wrong_to_correct_count": 87,
+      "correct_to_wrong_count": 51,
+      "net_rank1_correction_count": 36,
+      "semantically_score_modified_query_count": 1644,
+      "ranking_changed_query_count": 1113,
+      "average_accepted_attributes_per_candidate_pair": 10.0,
+      "semantic_abstention_rate": 0.0,
+      "harmful_case_count": 51,
+      "semantic_agreement": {
+        "true_match_rate": 0.6732710280373831,
+        "false_match_rate": 0.553392382639504
+      },
+      "average_semantic_reliability": {
+        "successful_cases": 0.535384835439852,
+        "harmful_cases": 0.5204996636977384
+      },
+      "per_attribute_uncertainty": {
+        "gender": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.7635722246909964,
+          "abstention_rate": 0.0
+        },
+        "build": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.5145240524267328,
+          "abstention_rate": 0.0
+        },
+        "age": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.537772014482268,
+          "abstention_rate": 0.0
+        },
+        "upper_colour": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.47862497069301274,
+          "abstention_rate": 0.0
+        },
+        "upper_type": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.2771300688036557,
+          "abstention_rate": 0.0
+        },
+        "lower_colour": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.43727388973071657,
+          "abstention_rate": 0.0
+        },
+        "lower_type": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.3680293664870591,
+          "abstention_rate": 0.0
+        },
+        "backpack": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.5867259748393092,
+          "abstention_rate": 0.0
+        },
+        "handbag": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.5684655484248852,
+          "abstention_rate": 0.0
+        },
+        "hat": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.5902046064015093,
+          "abstention_rate": 0.0
+        }
+      },
+      "case_counts": {
+        "corrected": 87,
+        "harmful": 51,
+        "reachable_not_corrected": 127
+      }
+    },
+    "D": {
+      "label": "proper attributes + SymbolRegistry + multi-view voting",
+      "metrics": {
+        "mAP": 0.19026679839573873,
+        "Rank-1": 0.3500897666068223,
+        "Rank-5": 0.48249551166965887,
+        "Rank-10": 0.5480251346499102
+      },
+      "change_from_baseline": {
+        "mAP": 0.0016249665536086089,
+        "Rank-1": 0.019299820466786355,
+        "Rank-5": 0.005385996409335736,
+        "Rank-10": 0.0004488330341112512
+      },
+      "wrong_to_correct_count": 97,
+      "correct_to_wrong_count": 54,
+      "net_rank1_correction_count": 43,
+      "semantically_score_modified_query_count": 1644,
+      "ranking_changed_query_count": 1102,
+      "average_accepted_attributes_per_candidate_pair": 9.228137931034484,
+      "semantic_abstention_rate": 0.07718620689655176,
+      "harmful_case_count": 54,
+      "semantic_agreement": {
+        "true_match_rate": 0.6973323527445343,
+        "false_match_rate": 0.5604943500105877
+      },
+      "average_semantic_reliability": {
+        "successful_cases": 0.4369372002373332,
+        "harmful_cases": 0.4137263054625773
+      },
+      "per_attribute_uncertainty": {
+        "gender": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.6484632686587243,
+          "abstention_rate": 0.0
+        },
+        "build": {
+          "known_pair_rate": 0.9983448275862069,
+          "accepted_after_gating_rate": 0.9983448275862069,
+          "mean_reliability_for_known_pairs": 0.46641550881891725,
+          "abstention_rate": 0.0016551724137930934
+        },
+        "age": {
+          "known_pair_rate": 0.28372413793103446,
+          "accepted_after_gating_rate": 0.28372413793103446,
+          "mean_reliability_for_known_pairs": 0.5099498739674642,
+          "abstention_rate": 0.7162758620689655
+        },
+        "upper_colour": {
+          "known_pair_rate": 0.9958620689655172,
+          "accepted_after_gating_rate": 0.9958620689655172,
+          "mean_reliability_for_known_pairs": 0.3917649955870558,
+          "abstention_rate": 0.004137931034482789
+        },
+        "upper_type": {
+          "known_pair_rate": 0.984,
+          "accepted_after_gating_rate": 0.984,
+          "mean_reliability_for_known_pairs": 0.16465882504283694,
+          "abstention_rate": 0.016000000000000014
+        },
+        "lower_colour": {
+          "known_pair_rate": 0.9817931034482759,
+          "accepted_after_gating_rate": 0.9817931034482759,
+          "mean_reliability_for_known_pairs": 0.30756365162893257,
+          "abstention_rate": 0.01820689655172414
+        },
+        "lower_type": {
+          "known_pair_rate": 0.9844137931034482,
+          "accepted_after_gating_rate": 0.9844137931034482,
+          "mean_reliability_for_known_pairs": 0.24402413267148476,
+          "abstention_rate": 0.015586206896551769
+        },
+        "backpack": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.4971950567079251,
+          "abstention_rate": 0.0
+        },
+        "handbag": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.45715447399259806,
+          "abstention_rate": 0.0
+        },
+        "hat": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 1.0,
+          "mean_reliability_for_known_pairs": 0.4466780867910591,
+          "abstention_rate": 0.0
+        }
+      },
+      "case_counts": {
+        "corrected": 97,
+        "harmful": 54,
+        "reachable_not_corrected": 117
+      }
+    },
+    "E": {
+      "label": "D + uncertainty gating",
+      "metrics": {
+        "mAP": 0.19028300708443388,
+        "Rank-1": 0.34605026929982047,
+        "Rank-5": 0.48159784560143626,
+        "Rank-10": 0.5484739676840216
+      },
+      "change_from_baseline": {
+        "mAP": 0.0016411752423037551,
+        "Rank-1": 0.015260323159784539,
+        "Rank-5": 0.004488330341113123,
+        "Rank-10": 0.0008976660682226134
+      },
+      "wrong_to_correct_count": 87,
+      "correct_to_wrong_count": 53,
+      "net_rank1_correction_count": 34,
+      "semantically_score_modified_query_count": 1643,
+      "ranking_changed_query_count": 1092,
+      "average_accepted_attributes_per_candidate_pair": 6.016413793103449,
+      "semantic_abstention_rate": 0.3983586206896552,
+      "harmful_case_count": 53,
+      "semantic_agreement": {
+        "true_match_rate": 0.8092124524251,
+        "false_match_rate": 0.6701126693036078
+      },
+      "average_semantic_reliability": {
+        "successful_cases": 0.5603888811238183,
+        "harmful_cases": 0.5415811454656072
+      },
+      "per_attribute_uncertainty": {
+        "gender": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.8993103448275862,
+          "mean_reliability_for_known_pairs": 0.6484632686587243,
+          "abstention_rate": 0.1006896551724138
+        },
+        "build": {
+          "known_pair_rate": 0.9983448275862069,
+          "accepted_after_gating_rate": 0.7750344827586206,
+          "mean_reliability_for_known_pairs": 0.46641550881891725,
+          "abstention_rate": 0.22496551724137936
+        },
+        "age": {
+          "known_pair_rate": 0.28372413793103446,
+          "accepted_after_gating_rate": 0.28220689655172415,
+          "mean_reliability_for_known_pairs": 0.5099498739674642,
+          "abstention_rate": 0.7177931034482758
+        },
+        "upper_colour": {
+          "known_pair_rate": 0.9958620689655172,
+          "accepted_after_gating_rate": 0.648,
+          "mean_reliability_for_known_pairs": 0.3917649955870558,
+          "abstention_rate": 0.352
+        },
+        "upper_type": {
+          "known_pair_rate": 0.984,
+          "accepted_after_gating_rate": 0.1939310344827586,
+          "mean_reliability_for_known_pairs": 0.16465882504283694,
+          "abstention_rate": 0.8060689655172414
+        },
+        "lower_colour": {
+          "known_pair_rate": 0.9817931034482759,
+          "accepted_after_gating_rate": 0.5136551724137931,
+          "mean_reliability_for_known_pairs": 0.30756365162893257,
+          "abstention_rate": 0.4863448275862069
+        },
+        "lower_type": {
+          "known_pair_rate": 0.9844137931034482,
+          "accepted_after_gating_rate": 0.36937931034482757,
+          "mean_reliability_for_known_pairs": 0.24402413267148476,
+          "abstention_rate": 0.6306206896551725
+        },
+        "backpack": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.7782068965517241,
+          "mean_reliability_for_known_pairs": 0.4971950567079251,
+          "abstention_rate": 0.22179310344827585
+        },
+        "handbag": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.7219310344827586,
+          "mean_reliability_for_known_pairs": 0.45715447399259806,
+          "abstention_rate": 0.27806896551724136
+        },
+        "hat": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.8347586206896551,
+          "mean_reliability_for_known_pairs": 0.4466780867910591,
+          "abstention_rate": 0.16524137931034488
+        }
+      },
+      "case_counts": {
+        "corrected": 87,
+        "harmful": 53,
+        "reachable_not_corrected": 127
+      }
+    },
+    "F": {
+      "label": "E + quality masking",
+      "metrics": {
+        "mAP": 0.19027383259358102,
+        "Rank-1": 0.34560143626570916,
+        "Rank-5": 0.48159784560143626,
+        "Rank-10": 0.5484739676840216
+      },
+      "change_from_baseline": {
+        "mAP": 0.001632000751450896,
+        "Rank-1": 0.014811490125673232,
+        "Rank-5": 0.004488330341113123,
+        "Rank-10": 0.0008976660682226134
+      },
+      "wrong_to_correct_count": 83,
+      "correct_to_wrong_count": 50,
+      "net_rank1_correction_count": 33,
+      "semantically_score_modified_query_count": 1643,
+      "ranking_changed_query_count": 1073,
+      "average_accepted_attributes_per_candidate_pair": 6.016413793103449,
+      "semantic_abstention_rate": 0.3983586206896552,
+      "harmful_case_count": 50,
+      "semantic_agreement": {
+        "true_match_rate": 0.8092124524251,
+        "false_match_rate": 0.6701126693036078
+      },
+      "average_semantic_reliability": {
+        "successful_cases": 0.5660791714843086,
+        "harmful_cases": 0.5453310720293473
+      },
+      "per_attribute_uncertainty": {
+        "gender": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.8993103448275862,
+          "mean_reliability_for_known_pairs": 0.6484632686587243,
+          "abstention_rate": 0.1006896551724138
+        },
+        "build": {
+          "known_pair_rate": 0.9983448275862069,
+          "accepted_after_gating_rate": 0.7750344827586206,
+          "mean_reliability_for_known_pairs": 0.46641550881891725,
+          "abstention_rate": 0.22496551724137936
+        },
+        "age": {
+          "known_pair_rate": 0.28372413793103446,
+          "accepted_after_gating_rate": 0.28220689655172415,
+          "mean_reliability_for_known_pairs": 0.5099498739674642,
+          "abstention_rate": 0.7177931034482758
+        },
+        "upper_colour": {
+          "known_pair_rate": 0.9958620689655172,
+          "accepted_after_gating_rate": 0.648,
+          "mean_reliability_for_known_pairs": 0.3917649955870558,
+          "abstention_rate": 0.352
+        },
+        "upper_type": {
+          "known_pair_rate": 0.984,
+          "accepted_after_gating_rate": 0.1939310344827586,
+          "mean_reliability_for_known_pairs": 0.16465882504283694,
+          "abstention_rate": 0.8060689655172414
+        },
+        "lower_colour": {
+          "known_pair_rate": 0.9817931034482759,
+          "accepted_after_gating_rate": 0.5136551724137931,
+          "mean_reliability_for_known_pairs": 0.30756365162893257,
+          "abstention_rate": 0.4863448275862069
+        },
+        "lower_type": {
+          "known_pair_rate": 0.9844137931034482,
+          "accepted_after_gating_rate": 0.36937931034482757,
+          "mean_reliability_for_known_pairs": 0.24402413267148476,
+          "abstention_rate": 0.6306206896551725
+        },
+        "backpack": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.7782068965517241,
+          "mean_reliability_for_known_pairs": 0.4971950567079251,
+          "abstention_rate": 0.22179310344827585
+        },
+        "handbag": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.7219310344827586,
+          "mean_reliability_for_known_pairs": 0.45715447399259806,
+          "abstention_rate": 0.27806896551724136
+        },
+        "hat": {
+          "known_pair_rate": 1.0,
+          "accepted_after_gating_rate": 0.8347586206896551,
+          "mean_reliability_for_known_pairs": 0.4466780867910591,
+          "abstention_rate": 0.16524137931034488
+        }
+      },
+      "case_counts": {
+        "corrected": 83,
+        "harmful": 50,
+        "reachable_not_corrected": 131
+      }
+    }
+  },
+  "image_attribute_statistics": {
+    "B": {
+      "upper_colour": {
+        "known_rate": 0.9859866178512814,
+        "mean_confidence_when_known": 0.6062777938061273,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "lower_colour": {
+        "known_rate": 0.821360939275344,
+        "mean_confidence_when_known": 0.5278349697470774,
+        "mean_vote_agreement_when_known": 1.0
+      }
+    },
+    "C": {
+      "gender": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.8397162590058761,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "build": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5654560399994587,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "age": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5880004273469573,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "upper_colour": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5759445298009261,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "upper_type": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.3272440414671163,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "lower_colour": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5279173351661558,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "lower_type": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.42735275275710854,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "backpack": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6328089898575618,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "handbag": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6082571510970028,
+        "mean_vote_agreement_when_known": 1.0
+      },
+      "hat": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6380877572694612,
+        "mean_vote_agreement_when_known": 1.0
+      }
+    },
+    "D": {
+      "gender": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.7972270968872073,
+        "mean_vote_agreement_when_known": 0.9409165509405378
+      },
+      "build": {
+        "known_rate": 0.9991162731978286,
+        "mean_confidence_when_known": 0.552261694531445,
+        "mean_vote_agreement_when_known": 0.9596074467189077
+      },
+      "age": {
+        "known_rate": 0.4927408155535917,
+        "mean_confidence_when_known": 0.5523131855506029,
+        "mean_vote_agreement_when_known": 0.998484072081305
+      },
+      "upper_colour": {
+        "known_rate": 0.9974750662795102,
+        "mean_confidence_when_known": 0.547180868748426,
+        "mean_vote_agreement_when_known": 0.8967219339324136
+      },
+      "upper_type": {
+        "known_rate": 0.9921727054664815,
+        "mean_confidence_when_known": 0.27910962515171817,
+        "mean_vote_agreement_when_known": 0.8047143402468507
+      },
+      "lower_colour": {
+        "known_rate": 0.9916677187223836,
+        "mean_confidence_when_known": 0.4671856081709598,
+        "mean_vote_agreement_when_known": 0.843475493316359
+      },
+      "lower_type": {
+        "known_rate": 0.9926776922105794,
+        "mean_confidence_when_known": 0.3835844335887824,
+        "mean_vote_agreement_when_known": 0.8172771206918479
+      },
+      "backpack": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6028487059106135,
+        "mean_vote_agreement_when_known": 0.9420527711147769
+      },
+      "handbag": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5679501999394247,
+        "mean_vote_agreement_when_known": 0.9231999326684581
+      },
+      "hat": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5883587369761855,
+        "mean_vote_agreement_when_known": 0.90092791314228
+      }
+    },
+    "E": {
+      "gender": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.7972270968872073,
+        "mean_vote_agreement_when_known": 0.9409165509405378
+      },
+      "build": {
+        "known_rate": 0.9991162731978286,
+        "mean_confidence_when_known": 0.552261694531445,
+        "mean_vote_agreement_when_known": 0.9596074467189077
+      },
+      "age": {
+        "known_rate": 0.4927408155535917,
+        "mean_confidence_when_known": 0.5523131855506029,
+        "mean_vote_agreement_when_known": 0.998484072081305
+      },
+      "upper_colour": {
+        "known_rate": 0.9974750662795102,
+        "mean_confidence_when_known": 0.547180868748426,
+        "mean_vote_agreement_when_known": 0.8967219339324136
+      },
+      "upper_type": {
+        "known_rate": 0.9921727054664815,
+        "mean_confidence_when_known": 0.27910962515171817,
+        "mean_vote_agreement_when_known": 0.8047143402468507
+      },
+      "lower_colour": {
+        "known_rate": 0.9916677187223836,
+        "mean_confidence_when_known": 0.4671856081709598,
+        "mean_vote_agreement_when_known": 0.843475493316359
+      },
+      "lower_type": {
+        "known_rate": 0.9926776922105794,
+        "mean_confidence_when_known": 0.3835844335887824,
+        "mean_vote_agreement_when_known": 0.8172771206918479
+      },
+      "backpack": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6028487059106135,
+        "mean_vote_agreement_when_known": 0.9420527711147769
+      },
+      "handbag": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5679501999394247,
+        "mean_vote_agreement_when_known": 0.9231999326684581
+      },
+      "hat": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5883587369761855,
+        "mean_vote_agreement_when_known": 0.90092791314228
+      }
+    },
+    "F": {
+      "gender": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.7972270968872073,
+        "mean_vote_agreement_when_known": 0.9409165509405378
+      },
+      "build": {
+        "known_rate": 0.9991162731978286,
+        "mean_confidence_when_known": 0.552261694531445,
+        "mean_vote_agreement_when_known": 0.9596074467189077
+      },
+      "age": {
+        "known_rate": 0.4927408155535917,
+        "mean_confidence_when_known": 0.5523131855506029,
+        "mean_vote_agreement_when_known": 0.998484072081305
+      },
+      "upper_colour": {
+        "known_rate": 0.9974750662795102,
+        "mean_confidence_when_known": 0.547180868748426,
+        "mean_vote_agreement_when_known": 0.8967219339324136
+      },
+      "upper_type": {
+        "known_rate": 0.9921727054664815,
+        "mean_confidence_when_known": 0.27910962515171817,
+        "mean_vote_agreement_when_known": 0.8047143402468507
+      },
+      "lower_colour": {
+        "known_rate": 0.9916677187223836,
+        "mean_confidence_when_known": 0.4671856081709598,
+        "mean_vote_agreement_when_known": 0.843475493316359
+      },
+      "lower_type": {
+        "known_rate": 0.9926776922105794,
+        "mean_confidence_when_known": 0.3835844335887824,
+        "mean_vote_agreement_when_known": 0.8172771206918479
+      },
+      "backpack": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.6028487059106135,
+        "mean_vote_agreement_when_known": 0.9420527711147769
+      },
+      "handbag": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5679501999394247,
+        "mean_vote_agreement_when_known": 0.9231999326684581
+      },
+      "hat": {
+        "known_rate": 1.0,
+        "mean_confidence_when_known": 0.5883587369761855,
+        "mean_vote_agreement_when_known": 0.90092791314228
+      }
+    }
+  },
+  "best_configuration_posthoc": "D",
+  "best_selection_note": "Highest Rank-1 (mAP tie-break) among pre-declared fixed ablations; this is post-hoc reporting, not PID-based inference or tuning."
+}

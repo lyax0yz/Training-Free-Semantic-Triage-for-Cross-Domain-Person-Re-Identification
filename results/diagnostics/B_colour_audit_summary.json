@@ -1,0 +1,14 @@
+{
+  "case_count": 36,
+  "remove_upper_avoids_error": 8,
+  "remove_lower_avoids_error": 12,
+  "mean_true_minus_false_visual_gap": 0.010230635603268942,
+  "main_reward_attribute_counts": {
+    "upper_colour": 28,
+    "lower_colour": 32
+  },
+  "main_penalty_attribute_counts": {
+    "upper_colour": 28,
+    "lower_colour": 26
+  }
+}
