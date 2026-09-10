@@ -31,3 +31,8 @@ selected qualitative examples actually used in the dissertation.
 5. `run_fixed_scheme2_d.py` evaluates the frozen configuration D on MSMT17 or
    after k-reciprocal reranking.
 
+
+## Other resources
+
+Other resources can be found at:
+https://drive.google.com/drive/folders/1WdrfLkACDC6OGMLrC_LI7abXeB_0dMKU?usp=sharing
